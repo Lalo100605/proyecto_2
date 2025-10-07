@@ -12,21 +12,32 @@
 
     <!-- === MENÚ HAMBURGUESA === -->
     <header class="menu-header">
-        <div class="hamburger">
+        <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </header>
 
-    <!-- GRID DE 8 CUADROS -->
+    <!-- === POPUP DEL MENÚ === -->
+    <div class="menu-popup" id="menuPopup">
+        <span class="close-popup" id="closePopup">&times;</span>
+        <ul>
+            <li><a href="#proyecto1"><img src="img/proyecto1.jpg" alt=""> Proyecto 01</a></li>
+            <li><a href="#proyecto2"><img src="img/proyecto2.jpg" alt=""> Proyecto 02</a></li>
+            <li><a href="#proyecto3"><img src="img/proyecto3.jpg" alt=""> Proyecto 03</a></li>
+            <li><a href="#proyecto4"><img src="img/proyecto4.jpg" alt=""> Proyecto 04</a></li>
+        </ul>
+    </div>
+
+    <!-- === GRID DE 8 CUADROS === -->
     <section class="proyectos-grid">
-        
+
         <!-- Cuadro 1: Texto -->
-        <div class="texto1">
+        <a href="#proyecto1" class="texto1">
             <h2>01</h2>
             <p>PROJECT</p>
-        </div>
+        </a>
 
         <!-- Cuadro 2: Imagen -->
         <div>
@@ -34,10 +45,10 @@
         </div>
 
         <!-- Cuadro 3: Texto -->
-        <div class="texto2">
+        <a href="#proyecto2" class="texto2">
             <h2>02</h2>
             <p>PROJECT</p>
-        </div>
+        </a>
 
         <!-- Cuadro 4: Imagen -->
         <div>
@@ -50,10 +61,10 @@
         </div>
 
         <!-- Cuadro 6: Texto -->
-        <div class="texto3">
+        <a href="#proyecto3" class="texto3">
             <h2>03</h2>
             <p>PROJECT</p>
-        </div>
+        </a>
 
         <!-- Cuadro 7: Imagen -->
         <div>
@@ -66,12 +77,11 @@
         </div>
     </section>
 
-
-    <!-- SECCIÓN DE MAS DETALLE -->
+    <!-- === SECCIÓN DE DETALLES DE PROYECTOS === -->
     <section class="proyectos-detalle">
 
         <!-- Proyecto 1 -->
-        <article class="detalle">
+        <article id="proyecto1" class="detalle">
             <div class="texto">
                 <h2>01 PROJECT</h2>
                 <h3>Ready to get <strong>started?</strong></h3>
@@ -92,7 +102,7 @@
         </article>
 
         <!-- Proyecto 2 -->
-        <article class="detalle">
+        <article id="proyecto2" class="detalle">
             <div class="texto">
                 <h2>02 PROJECT</h2>
                 <h3>A platform <strong>you can trust</strong></h3>
@@ -110,7 +120,7 @@
         </article>
 
         <!-- Proyecto 3 -->
-        <article class="detalle">
+        <article id="proyecto3" class="detalle">
             <div class="texto">
                 <h2>03 PROJECT</h2>
                 <h3>For the <strong>whole team</strong></h3>
@@ -131,7 +141,7 @@
         </article>
 
         <!-- Proyecto 4 -->
-        <article class="detalle">
+        <article id="proyecto4" class="detalle">
             <div class="texto">
                 <h2>04 PROJECT</h2>
                 <h3>No-code automation for <strong>security teams</strong></h3>
@@ -150,11 +160,37 @@
 
     </section>
 
+    <!-- === FOOTER === -->
     <footer class="footer">
         <p>Sample text. Click to select the Text Element.</p>
     </footer>
 
+    <!-- === SCRIPT DEL MENÚ === -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menuPopup = document.getElementById('menuPopup');
+        const closePopup = document.getElementById('closePopup');
+
+        // Mostrar u ocultar el popup
+        hamburger.addEventListener('click', () => {
+            menuPopup.classList.toggle('visible');
+        });
+
+        // Cerrar popup al hacer clic en la "X"
+        closePopup.addEventListener('click', () => {
+            menuPopup.classList.remove('visible');
+        });
+
+        // Scroll hacia el proyecto seleccionado
+        document.querySelectorAll('.menu-popup a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                menuPopup.classList.remove('visible');
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 
 </body>
-
 </html>

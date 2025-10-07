@@ -33,6 +33,16 @@
     font-weight: bold;
 }
 
+.texto1, .texto2, .texto3, .texto4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
+    height: 100%;            
+}
+
+
 /* === MEDIA QUERIES PARA LOS 8 CUADROS === */
 @media (max-width: 1024px) {
     .proyectos-grid {
@@ -80,10 +90,10 @@
 }
 
 .detalle .texto h2 {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 2rem;  
+    font-weight: 1000;  
     letter-spacing: 1px;
-    color: #888;
+    color: #000;        
     margin-bottom: 10px;
 }
 
@@ -100,7 +110,7 @@
 }
 
 .detalle .texto p {
-    color: #444;
+    color: #000000;
     line-height: 1.6;
     margin-bottom: 15px;
 }
@@ -115,7 +125,7 @@
     position: relative;
     margin-bottom: 8px;
     padding-left: 25px;
-    color: #333;
+    color: #000000;
 }
 
 .detalle .texto ul li::before {
@@ -139,7 +149,6 @@
     object-fit: cover;
 }
 
-/* Alternar la posición de imagen y texto */
 .detalle:nth-child(even) {
     flex-direction: row-reverse;
 }
@@ -194,6 +203,71 @@
     transform: translateY(-5px);
 }
 
+/* === POPUP DEL MENÚ === */
+.menu-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    padding: 30px 40px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    max-width: 250px;
+}
+
+
+.menu-popup.visible {
+    display: flex;
+}
+
+.menu-popup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-popup li {
+    margin: 10px 0;
+}
+
+.menu-popup a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+    transition: color 0.2s ease;
+}
+
+.menu-popup a:hover {
+    color: #f2b500;
+}
+
+.menu-popup img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #fff;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1010;
+}
+
 
 /* === AJUSTE RESPONSIVE PARA MÓVILES === */
 @media (max-width: 900px) {
@@ -215,4 +289,29 @@
     .detalle .texto ul li {
         text-align: left;
     }
+}  
+
+/* === SCROLL SUAVE EN TODA LA PÁGINA === */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === ENLACES DE LA GRID (para que los textos sean botones clicables) === */
+.proyectos-grid a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
+    height: 100%;            
+    text-decoration: none;   /* Quitar subrayado */
+    color: inherit;          /* Mantener colores */
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.proyectos-grid a:hover {
+    background: #eaeaea;
+    transform: scale(1.05);
 }
