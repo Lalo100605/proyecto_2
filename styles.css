@@ -37,10 +37,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    align-items: center;     
-    text-align: center;      
+    align-items: flex-start;   
+    text-align: left;           
     height: 100%;            
 }
+
 
 
 /* === MEDIA QUERIES PARA LOS 8 CUADROS === */
@@ -291,12 +292,12 @@
     }
 }  
 
-/* === SCROLL SUAVE EN TODA LA PÁGINA === */
+/* === SCROLL en la pagina === */
 html {
     scroll-behavior: smooth;
 }
 
-/* === ENLACES DE LA GRID (para que los textos sean botones clicables) === */
+/* === Enlaces para que los textos sean botones === */
 .proyectos-grid a {
     display: flex;
     flex-direction: column;
@@ -304,8 +305,8 @@ html {
     align-items: center;     
     text-align: center;      
     height: 100%;            
-    text-decoration: none;   /* Quitar subrayado */
-    color: inherit;          /* Mantener colores */
+    text-decoration: none;  
+    color: inherit;    
     background: #f4f4f4;
     border: 1px solid #ddd;
     transition: background 0.3s ease, transform 0.2s ease;
@@ -314,4 +315,115 @@ html {
 .proyectos-grid a:hover {
     background: #eaeaea;
     transform: scale(1.05);
+}
+
+.detalle .texto .numero {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+.detalle .texto .etiqueta {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #000000;
+    margin-bottom: 25px;
+}
+
+/* Alineación del texto del bloque */
+.detalle .texto {
+    text-align: left;
+}
+
+/* === EFECTO DE FONDO DOBLE EN PROYECTOS 2 Y 4 === */
+.proyectos-detalle .detalle:nth-child(2),
+.proyectos-detalle .detalle:nth-child(4) {
+  position: relative;
+  z-index: 3;
+}
+
+/* Fondo gris grande */
+.proyectos-detalle .detalle:nth-child(2)::before,
+.proyectos-detalle .detalle:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -90px;
+  right: -90px;
+  bottom: -60px;
+  background-color: #f1f1f1;
+  border-radius: 12px;
+  z-index: -2;
+}
+
+/* Cuadro blanco */
+.proyectos-detalle .detalle:nth-child(2)::after,
+.proyectos-detalle .detalle:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: -1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Ajuste general del bloque */
+.proyectos-detalle .detalle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Imagen y texto */
+.detalle .imagen {
+  flex: 1;
+  z-index: 1;
+}
+
+.detalle .imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.detalle .texto {
+  flex: 1;
+  z-index: 1;
+  position: relative;
+}
+
+.detalle .texto h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.detalle .texto h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.detalle .texto p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
 }
