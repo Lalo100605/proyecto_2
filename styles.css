@@ -12,14 +12,27 @@
     align-items: center;
     background: #f4f4f4;
     text-align: center;
-    height: 180px;      
+    height: 180px;
     border: 1px solid #ddd;
+}
+
+.proyectos-grid a svg.icono-red {
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    color: #000;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.proyectos-grid a:hover svg.icono-red {
+    transform: scale(1.2);
+    color: #f2b500;
 }
 
 .proyectos-grid img {
     width: 100%;
     height: 100%;
-    object-fit: cover;   
+    object-fit: cover;
 }
 
 .proyectos-grid h2 {
@@ -33,22 +46,24 @@
     font-weight: bold;
 }
 
-.texto1, .texto2, .texto3, .texto4 {
+.texto1,
+.texto2,
+.texto3,
+.texto4 {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: flex-start;   
-    text-align: left;           
-    height: 100%;            
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
 }
-
-
 
 /* === MEDIA QUERIES PARA LOS 8 CUADROS === */
 @media (max-width: 1024px) {
     .proyectos-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .proyectos-grid div {
         height: 160px;
     }
@@ -58,11 +73,11 @@
     .proyectos-grid {
         grid-template-columns: 1fr;
     }
+
     .proyectos-grid div {
         height: 140px;
     }
 }
-
 
 /* === SECCIÓN DE DETALLES DE PROYECTOS === */
 .proyectos-detalle {
@@ -82,7 +97,7 @@
     background: #fff;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 /* Contenedor de texto */
@@ -91,10 +106,10 @@
 }
 
 .detalle .texto h2 {
-    font-size: 2rem;  
-    font-weight: 1000;  
+    font-size: 2rem;
+    font-weight: 1000;
     letter-spacing: 1px;
-    color: #000;        
+    color: #000;
     margin-bottom: 10px;
 }
 
@@ -195,7 +210,6 @@
     transition: all 0.3s ease;
 }
 
-/* Animación al pasar el cursor */
 .hamburger:hover span:nth-child(1) {
     transform: translateY(5px);
 }
@@ -221,7 +235,6 @@
     width: 50%;
     max-width: 250px;
 }
-
 
 .menu-popup.visible {
     display: flex;
@@ -269,6 +282,68 @@
     z-index: 1010;
 }
 
+@media (max-width: 600px) {
+    .menu-popup {
+        width: 100vw;
+        height: 100vh;
+        max-width: none;
+        border-radius: 0;
+        padding: 60px 30px;
+        top: 0;
+        left: 0;
+        transform: none;
+        background: rgba(0, 0, 0, 0.95);
+        box-shadow: none;
+
+        display: none; 
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;     
+        text-align: center;     
+    }
+
+    .menu-popup.visible {
+        display: flex;
+    }
+
+    .menu-popup ul {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-popup li {
+        margin: 20px 0;
+    }
+
+    .menu-popup a {
+        font-size: 2rem;      
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-popup img {
+        width: 80px;           
+        height: 80px;
+        border-radius: 8px;
+        border: 2px solid #fff;
+        object-fit: cover;
+    }
+
+    .close-popup {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        font-size: 2.5rem;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
 
 /* === AJUSTE RESPONSIVE PARA MÓVILES === */
 @media (max-width: 900px) {
@@ -290,7 +365,7 @@
     .detalle .texto ul li {
         text-align: left;
     }
-}  
+}
 
 /* === SCROLL en la pagina === */
 html {
@@ -301,12 +376,12 @@ html {
 .proyectos-grid a {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;     
-    text-align: center;      
-    height: 100%;            
-    text-decoration: none;  
-    color: inherit;    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
     background: #f4f4f4;
     border: 1px solid #ddd;
     transition: background 0.3s ease, transform 0.2s ease;
@@ -336,7 +411,6 @@ html {
     margin-bottom: 25px;
 }
 
-/* Alineación del texto del bloque */
 .detalle .texto {
     text-align: left;
 }
@@ -344,86 +418,84 @@ html {
 /* === EFECTO DE FONDO DOBLE EN PROYECTOS 2 Y 4 === */
 .proyectos-detalle .detalle:nth-child(2),
 .proyectos-detalle .detalle:nth-child(4) {
-  position: relative;
-  z-index: 3;
+    position: relative;
+    z-index: 3;
 }
 
-/* Fondo gris grande */
 .proyectos-detalle .detalle:nth-child(2)::before,
 .proyectos-detalle .detalle:nth-child(4)::before {
-  content: "";
-  position: absolute;
-  top: -60px;
-  left: -90px;
-  right: -90px;
-  bottom: -60px;
-  background-color: #f1f1f1;
-  border-radius: 12px;
-  z-index: -2;
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -90px;
+    right: -90px;
+    bottom: -60px;
+    background-color: #f1f1f1;
+    border-radius: 12px;
+    z-index: -2;
 }
 
-/* Cuadro blanco */
 .proyectos-detalle .detalle:nth-child(2)::after,
 .proyectos-detalle .detalle:nth-child(4)::after {
-  content: "";
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  z-index: -1;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: -1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Ajuste general del bloque */
 .proyectos-detalle .detalle {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding: 60px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Imagen y texto */
 .detalle .imagen {
-  flex: 1;
-  z-index: 1;
+    flex: 1;
+    z-index: 1;
 }
 
 .detalle .imagen img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .detalle .texto {
-  flex: 1;
-  z-index: 1;
-  position: relative;
+    flex: 1;
+    z-index: 1;
+    position: relative;
 }
 
 .detalle .texto h2 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 5px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
 }
 
 .detalle .texto h3 {
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  color: #333;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .detalle .texto p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
 }
